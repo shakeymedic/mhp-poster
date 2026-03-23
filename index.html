@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Haemorrhage Procedure ED Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --uhb-blue: #005EB8;
+            --uhb-red: #DA291C;
+            --uhb-green: #009639;
+            --uhb-purple: #7030A0;
+            --uhb-grey: #E8EDEE;
+            --text-dark: #212529;
+            --bg-light: #F8F9FA;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #525659;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* A3 Portrait Layout Settings */
+        .a3-poster {
+            width: 297mm;
+            height: 420mm;
+            background-color: white;
+            padding: 15mm;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 6mm;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--uhb-blue);
+            color: white;
+            text-align: center;
+            padding: 8mm 5mm;
+            border-radius: 3mm;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 32pt;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2mm;
+        }
+
+        .header h2 {
+            font-size: 18pt;
+            font-weight: 700;
+            opacity: 0.95;
+        }
+
+        /* Trigger Section */
+        .trigger-box {
+            background-color: #FDF3F2;
+            border: 2pt solid var(--uhb-red);
+            border-radius: 3mm;
+            padding: 5mm;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .trigger-icon svg {
+            width: 14mm;
+            height: 14mm;
+            stroke: var(--uhb-red);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .trigger-content h3 {
+            color: var(--uhb-red);
+            font-size: 16pt;
+            font-weight: 900;
+            margin-bottom: 1mm;
+        }
+
+        .trigger-content ul {
+            list-style: none;
+            display: flex;
+            gap: 8mm;
+        }
+
+        .trigger-content li {
+            font-size: 14pt;
+            font-weight: 700;
+            position: relative;
+            padding-left: 4mm;
+        }
+        
+        .trigger-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--uhb-red);
+        }
+
+        /* Two Column Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+            flex-grow: 1;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 6mm;
+        }
+
+        /* Standard Card Style */
+        .card {
+            background: white;
+            border: 1pt solid #ddd;
+            border-radius: 3mm;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card-header {
+            color: white;
+            padding: 3mm 4mm;
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+        }
+
+        .card-header.blue { background-color: var(--uhb-blue); }
+        .card-header.purple { background-color: var(--uhb-purple); }
+        .card-header.green { background-color: var(--uhb-green); }
+
+        .card-header h3 {
+            font-size: 16pt;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .card-header svg {
+            width: 7mm;
+            height: 7mm;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .card-body {
+            padding: 4mm 5mm;
+            font-size: 12pt;
+            line-height: 1.4;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .card-body > ul > li {
+            margin-bottom: 2.5mm;
+            position: relative;
+            padding-left: 4mm;
+        }
+
+        .card-body > ul > li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            top: 0.5mm;
+            font-size: 8pt;
+            color: var(--uhb-blue);
+        }
+
+        .card-header.purple ~ .card-body > ul > li::before { color: var(--uhb-purple); }
+        .card-header.green ~ .card-body > ul > li::before { color: var(--uhb-green); }
+
+        .nested-list {
+            margin-top: 1.5mm;
+            padding-left: 2mm;
+        }
+
+        .nested-list li {
+            margin-bottom: 1mm;
+            position: relative;
+            padding-left: 4mm;
+        }
+
+        .nested-list li::before {
+            content: "○";
+            position: absolute;
+            left: 0;
+            font-size: 8pt;
+            color: #666;
+            top: 0.5mm;
+        }
+
+        .special-section {
+            margin-bottom: 3mm;
+        }
+        
+        .special-section strong {
+            display: block;
+            margin-bottom: 1.5mm;
+            font-size: 13pt;
+            color: var(--uhb-purple);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5mm;
+        }
+
+        /* Footer Section */
+        .footer-warning {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 5mm;
+            border-radius: 3mm;
+            font-weight: 700;
+            font-size: 14pt;
+        }
+
+        .footer-reference {
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+            margin-top: 2mm;
+        }
+
+        /* Floating Action Button for Printing */
+        .fab-print {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--uhb-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            z-index: 1000;
+        }
+
+        .fab-print:hover {
+            transform: scale(1.05);
+            background-color: #00468a;
+        }
+
+        /* Print Specific Styles */
+        @page {
+            size: A3 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+            .a3-poster {
+                box-shadow: none;
+                width: 297mm;
+                height: 420mm;
+                page-break-after: avoid;
+            }
+            .fab-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="fab-print" onclick="window.print()" title="Print Poster">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+    </button>
+
+    <div class="a3-poster">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Major Haemorrhage Procedure</h1>
+            <h2>Emergency Department Quick Reference Guide</h2>
+        </div>
+
+        <!-- Trigger -->
+        <div class="trigger-box">
+            <div class="trigger-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <div class="trigger-content">
+                <h3>TRIGGER: Bleeding with haemodynamic compromise</h3>
+                <ul>
+                    <li>Heart rate greater than 110 bpm.</li>
+                    <li>Systolic blood pressure less than 90 mmHg.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div class="column">
+                
+                <!-- Step 1 -->
+                <div class="card">
+                    <div class="card-header blue">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <h3>1. Activate MHP</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Call switchboard on <strong>2222</strong>.</li>
+                            <li>State "I want to activate the major haemorrhage procedure".</li>
+                            <li>Provide your exact location and extension.</li>
+                            <li>Nominate a Team Leader.</li>
+                            <li>Nominate a Communications Co-ordinator to liaise with the transfusion laboratory.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="card">
+                    <div class="card-header blue">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                        </svg>
+                        <h3>2. Immediate Actions</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Take bloods:</strong> Send VBG or ABG, FBC, U&E, Calcium, INR, APTT, fibrinogen, and Group and Screen.</li>
+                            <li><strong>Transfuse components:</strong> Take emergency blood from the ED fridge. Transfuse 4 units of group O red cells and 4 units of thawed plasma.</li>
+                            <li><strong>Give Tranexamic Acid (TXA):</strong>
+                                <ul class="nested-list">
+                                    <li><strong>Trauma (under 3 hours):</strong> Give 1g IV bolus over 10 minutes followed by 1g infusion over 8 hours.</li>
+                                    <li><strong>Other bleeding:</strong> Give 1g bolus.</li>
+                                    <li>Do not give routinely for GI bleeding.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="card">
+                    <div class="card-header blue">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>3. Ongoing Support</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Warm the patient:</strong> Apply active warming blankets. Keep patient temperature above 36 degrees Celsius.</li>
+                            <li><strong>Replace Calcium:</strong> Give 10ml of 10 percent Calcium Chloride after every 4 units of red cells and plasma.</li>
+                            <li><strong>Reassess:</strong> Retake bloods every 30 to 60 minutes.</li>
+                            <li><strong>No results yet?</strong> If the patient is not fluid resuscitated and results are unavailable, order and give the next MHP pack.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column -->
+            <div class="column">
+                
+                <!-- Step 4 -->
+                <div class="card">
+                    <div class="card-header blue">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                        <h3>4. Guide Therapy with Lab Results</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Hb falling or under 80 g/L:</strong> Give Red Cells.</li>
+                            <li><strong>Platelets under 75:</strong> Give Platelets (use a threshold of 100 for traumatic brain injury).</li>
+                            <li><strong>INR or APTT ratio over 1.5:</strong> Give FFP.</li>
+                            <li><strong>Fibrinogen under 1.5 g/L:</strong> Give Cryoprecipitate.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Special Situations -->
+                <div class="card">
+                    <div class="card-header purple">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <h3>Special Situations</h3>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="special-section">
+                            <strong>Patients on Anticoagulants (DOACs / Warfarin)</strong>
+                            <ul>
+                                <li>Call the Haematologist on-call immediately.</li>
+                                <li>Give Prothrombin Complex Concentrate (Beriplex) per guidelines.</li>
+                                <li>Do not wait for lab results to reverse anticoagulation.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="special-section">
+                            <strong>Patients on Antiplatelets</strong>
+                            <ul>
+                                <li>Give 1 unit of platelets as soon as possible.</li>
+                            </ul>
+                        </div>
+
+                        <div class="special-section">
+                            <strong>Pregnant Patients (Obstetric Haemorrhage)</strong>
+                            <ul>
+                                <li>Target fibrinogen is higher at <strong>2.0 g/L</strong>. Give cryoprecipitate if levels fall below this.</li>
+                                <li>Consider early use of cryoprecipitate.</li>
+                                <li>Call the Obstetric Consultant on-call immediately.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Stand Down -->
+                <div class="card">
+                    <div class="card-header green">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3>Stand Down</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Call the transfusion laboratory to stand down once bleeding stops.</li>
+                            <li>Return unused products to the lab immediately.</li>
+                            <li>Complete all traceability documentation.</li>
+                            <li>Assess the patient for thromboprophylaxis.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-warning">
+            CRITICAL SAFETY NOTICE: All patients must wear an identification wristband. Always check components against the patient wristband before administration. Group O positive blood must NOT be given to individuals with child-bearing potential whose blood group is unknown.
+        </div>
+        
+        <div class="footer-reference">
+            Based on UHB Blood Transfusion Procedure: Major Haemorrhage Procedure (MHP) CG1320, Version 1.3 (Aug 2024).
+        </div>
+
+    </div>
+
+    <script>
+        // Simple script to handle print action dynamically if hosted online.
+        // The floating print button uses window.print() inline.
+        window.addEventListener('beforeprint', function() {
+            console.log('Preparing to print A3 poster.');
+        });
+    </script>
+</body>
+</html>

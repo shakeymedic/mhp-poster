@@ -257,15 +257,17 @@
             background-color: var(--uhb-blue);
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 60px;
+            border-radius: 30px;
+            padding: 0 20px;
             height: 60px;
-            font-size: 24px;
+            font-size: 16px;
+            font-weight: 700;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 10px;
             transition: transform 0.2s ease, background-color 0.2s ease;
             z-index: 1000;
         }
@@ -301,12 +303,13 @@
 </head>
 <body>
 
-    <button class="fab-print" onclick="window.print()" title="Print Poster">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <button class="fab-print" onclick="printA3PDF()" title="Print / Save as A3 PDF">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
             <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
+        <span>Save as A3 PDF</span>
     </button>
 
     <div class="a3-poster">
@@ -352,8 +355,8 @@
                             <li>Call switchboard on <strong>2222</strong>.</li>
                             <li>State "I want to activate the major haemorrhage procedure".</li>
                             <li>Provide your exact location and extension.</li>
-                            <li>Nominate a Team Leader.</li>
-                            <li>Nominate a Communications Co-ordinator to liaise with the transfusion laboratory.</li>
+                            <li>Nominate a team leader.</li>
+                            <li>Nominate a communications coordinator to liaise with the transfusion laboratory.</li>
                         </ul>
                     </div>
                 </div>
@@ -368,12 +371,12 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li><strong>Take bloods:</strong> Send VBG or ABG, FBC, U&E, Calcium, INR, APTT, fibrinogen, and Group and Screen.</li>
+                            <li><strong>Take bloods:</strong> Send VBG or ABG, FBC, U&E, calcium, INR, APTT, fibrinogen, and Group and Screen.</li>
                             <li><strong>Transfuse components:</strong> Take emergency blood from the ED fridge. Transfuse 4 units of group O red cells and 4 units of thawed plasma.</li>
-                            <li><strong>Give Tranexamic Acid (TXA):</strong>
+                            <li><strong>Give tranexamic acid (TXA):</strong>
                                 <ul class="nested-list">
-                                    <li><strong>Trauma (under 3 hours):</strong> Give 1g IV bolus over 10 minutes followed by 1g infusion over 8 hours.</li>
-                                    <li><strong>Other bleeding:</strong> Give 1g bolus.</li>
+                                    <li><strong>Trauma (under 3 hours):</strong> Give 1&nbsp;g IV bolus over 10 minutes followed by 1&nbsp;g infusion over 8 hours.</li>
+                                    <li><strong>Other bleeding:</strong> Give 1&nbsp;g bolus.</li>
                                     <li>Do not give routinely for GI bleeding.</li>
                                 </ul>
                             </li>
@@ -393,7 +396,7 @@
                     <div class="card-body">
                         <ul>
                             <li><strong>Warm the patient:</strong> Apply active warming blankets. Keep patient temperature above 36 degrees Celsius.</li>
-                            <li><strong>Replace Calcium:</strong> Give 10ml of 10 percent Calcium Chloride after every 4 units of red cells and plasma.</li>
+                            <li><strong>Replace calcium:</strong> Give 10&nbsp;ml of 10% calcium chloride after every 4 units of red cells and plasma.</li>
                             <li><strong>Reassess:</strong> Retake bloods every 30 to 60 minutes.</li>
                             <li><strong>No results yet?</strong> If the patient is not fluid resuscitated and results are unavailable, order and give the next MHP pack.</li>
                         </ul>
@@ -417,10 +420,10 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li><strong>Hb falling or under 80 g/L:</strong> Give Red Cells.</li>
-                            <li><strong>Platelets under 75:</strong> Give Platelets (use a threshold of 100 for traumatic brain injury).</li>
+                            <li><strong>Hb falling or under 80&nbsp;g/L:</strong> Give red cells.</li>
+                            <li><strong>Platelets under 75:</strong> Give platelets (use a threshold of 100 for traumatic brain injury).</li>
                             <li><strong>INR or APTT ratio over 1.5:</strong> Give FFP.</li>
-                            <li><strong>Fibrinogen under 1.5 g/L:</strong> Give Cryoprecipitate.</li>
+                            <li><strong>Fibrinogen under 1.5&nbsp;g/L:</strong> Give cryoprecipitate.</li>
                         </ul>
                     </div>
                 </div>
@@ -436,27 +439,27 @@
                     <div class="card-body">
                         
                         <div class="special-section">
-                            <strong>Patients on Anticoagulants (DOACs / Warfarin)</strong>
+                            <strong>Patients on anticoagulants (DOACs/warfarin)</strong>
                             <ul>
-                                <li>Call the Haematologist on-call immediately.</li>
-                                <li>Give Prothrombin Complex Concentrate (Beriplex) per guidelines.</li>
+                                <li>Call the haematologist on-call immediately.</li>
+                                <li>Give prothrombin complex concentrate (Beriplex) per guidelines.</li>
                                 <li>Do not wait for lab results to reverse anticoagulation.</li>
                             </ul>
                         </div>
                         
                         <div class="special-section">
-                            <strong>Patients on Antiplatelets</strong>
+                            <strong>Patients on antiplatelets</strong>
                             <ul>
                                 <li>Give 1 unit of platelets as soon as possible.</li>
                             </ul>
                         </div>
 
                         <div class="special-section">
-                            <strong>Pregnant Patients (Obstetric Haemorrhage)</strong>
+                            <strong>Pregnant patients (obstetric haemorrhage)</strong>
                             <ul>
-                                <li>Target fibrinogen is higher at <strong>2.0 g/L</strong>. Give cryoprecipitate if levels fall below this.</li>
+                                <li>Target fibrinogen is higher at <strong>2.0&nbsp;g/L</strong> Give cryoprecipitate if levels fall below this.</li>
                                 <li>Consider early use of cryoprecipitate.</li>
-                                <li>Call the Obstetric Consultant on-call immediately.</li>
+                                <li>Call the obstetric consultant on-call immediately.</li>
                             </ul>
                         </div>
 
@@ -497,8 +500,11 @@
     </div>
 
     <script>
-        // Simple script to handle print action dynamically if hosted online.
-        // The floating print button uses window.print() inline.
+        function printA3PDF() {
+            alert("Please select 'Save as PDF' and ensure the paper size is set to 'A3' in your print settings.");
+            window.print();
+        }
+
         window.addEventListener('beforeprint', function() {
             console.log('Preparing to print A3 poster.');
         });
